@@ -1,3 +1,7 @@
+#
+# This file differs from the original that can be found in https://github.com/smartmicro/smartmicro_ros2_radars
+#
+
 build
 install
 log
@@ -14,3 +18,4 @@ umrr_ros2_driver/smartmicro/include/*
 !umrr_ros2_driver/smartmicro/include/InstructionBuffer.h
 !umrr_ros2_driver/smartmicro/include/Types.h
 !umrr_ros2_driver/smartmicro/Readme.md
+core

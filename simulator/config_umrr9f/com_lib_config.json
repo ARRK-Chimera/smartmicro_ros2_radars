@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "client_id": 300,
     "role": "slave",
-    "shared_lib_path": "/code/umrr_ros2_driver/smartmicro/lib-linux-x86_64-gcc_9",
+    "shared_lib_path": "/code/umrr_ros2_driver/smartmicro/lib-linux-armv8-gcc_9",
     "config_path": "/code/simulator/config_umrr9f",
     "user_interface_name": "umrr9f_t169_automotive",
     "user_interface_major_v": 2,

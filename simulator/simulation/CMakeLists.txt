@@ -1,3 +1,7 @@
+#
+# This file differs from the original that can be found in https://github.com/smartmicro/smartmicro_ros2_radars
+#
+
 project(SensorSimulator)
 
 cmake_minimum_required(VERSION 3.13)
@@ -5,9 +9,9 @@ cmake_minimum_required(VERSION 3.13)
 set(CMAKE_SYSTEM_NAME Linux)
 set(CMAKE_C_COMPILER gcc)
 set(CMAKE_CXX_COMPILER g++)
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -m64 -fPIC")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -pthread -m64 -fPIC")
-set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -m64 -fPIC")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fPIC")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -pthread -fPIC")
+set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -fPIC")
 
 link_directories(${CMAKE_CURRENT_SOURCE_DIR}/${SMART_ACCESS_LIB_FOLDER})
 

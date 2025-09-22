@@ -1,3 +1,7 @@
+#
+# This file differs from the original that can be found in https://github.com/smartmicro/smartmicro_ros2_radars
+#
+
 # Copyright (c) 2021, s.m.s, smart microwave sensors GmbH, Brunswick, Germany
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -28,7 +32,7 @@ services:
             - .:/code
         environment:
             - SMART_ACCESS_CFG_FILE_PATH=/code/simulator/config_umrr11/com_lib_config.json
-            - LD_LIBRARY_PATH=/code/umrr_ros2_driver/smartmicro/lib-linux-x86_64-gcc_9
+            - LD_LIBRARY_PATH=/code/umrr_ros2_driver/smartmicro/lib-linux-armv8-gcc_9
         entrypoint: ["/code/simulator/simulation/out/bin/simulator"]
         command:    ["4", "1", "1", "A"]
         networks:
@@ -43,7 +47,7 @@ services:
             - .:/code
         environment:
             - SMART_ACCESS_CFG_FILE_PATH=/code/simulator/config_umrr96/com_lib_config.json
-            - LD_LIBRARY_PATH=/code/umrr_ros2_driver/smartmicro/lib-linux-x86_64-gcc_9
+            - LD_LIBRARY_PATH=/code/umrr_ros2_driver/smartmicro/lib-linux-armv8-gcc_9
         entrypoint: ["/code/simulator/simulation/out/bin/simulator"]
         command:    ["5", "1", "2", "A"]
         networks:
@@ -58,7 +62,7 @@ services:
             - .:/code
         environment:
             - SMART_ACCESS_CFG_FILE_PATH=/code/simulator/config_umrr9f/com_lib_config.json
-            - LD_LIBRARY_PATH=/code/umrr_ros2_driver/smartmicro/lib-linux-x86_64-gcc_9
+            - LD_LIBRARY_PATH=/code/umrr_ros2_driver/smartmicro/lib-linux-armv8-gcc_9
         entrypoint: ["/code/simulator/simulation/out/bin/simulator"]
         command:    ["9", "2", "1", "C"]
         networks:
@@ -73,7 +77,7 @@ services:
             - .:/code
         environment:
             - SMART_ACCESS_CFG_FILE_PATH=/code/simulator/config_umrr9d/com_lib_config.json
-            - LD_LIBRARY_PATH=/code/umrr_ros2_driver/smartmicro/lib-linux-x86_64-gcc_9
+            - LD_LIBRARY_PATH=/code/umrr_ros2_driver/smartmicro/lib-linux-armv8-gcc_9
         entrypoint: ["/code/simulator/simulation/out/bin/simulator"]
         command:    ["11", "1", "5", "D"]
         networks:

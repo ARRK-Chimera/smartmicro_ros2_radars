@@ -1,3 +1,7 @@
+#
+# This file differs from the original that can be found in https://github.com/smartmicro/smartmicro_ros2_radars
+#
+
 FROM ros:foxy
 
 ## Revert to snapshot once GPG key error is resolved
@@ -5,6 +9,14 @@ RUN rm /etc/apt/sources.list.d/ros2-snapshots.list
 RUN apt-get update && apt-get install curl -y
 RUN curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
 RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
+
+# Remove old keys and sources
+RUN rm -f /etc/apt/sources.list.d/ros2-snapshots.list
+RUN rm -f /usr/share/keyrings/ros-archive-keyring.gpg
+
+# Add the new ROS 2 GPG key and repository
+RUN curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key | gpg --dearmor -o /usr/share/keyrings/ros-archive-keyring.gpg
+RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" > /etc/apt/sources.list.d/ros2.list
 
 RUN apt-get update && apt-get install -y \
     iputils-ping \
@@ -15,6 +27,10 @@ RUN apt-get update && apt-get install -y \
     ros-foxy-rviz-common \
     ros-foxy-rviz-default-plugins \
     ros-foxy-rviz-rendering \
-    wget
+    wget \
+    # added by me
+    ros-foxy-cv-bridge \
+    python3-opencv \
+    libopencv-dev 
 
 WORKDIR /code
